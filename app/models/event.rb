@@ -13,8 +13,6 @@ class Event < ActiveRecord::Base
   validates :event_contact_phone,:presence => true,
                  :numericality => true,
                  :length => { :minimum => 10, :maximum => 15 }
-  def days_left
-  	4 + 12
-  end
+  
 
 end
