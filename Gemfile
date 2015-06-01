@@ -34,5 +34,6 @@ end
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'
+	gem 'thin', '~> 1.6.3'
 end
 
