@@ -1,0 +1,29 @@
+<div class="container add-pad">
+	<section class="user-forms">
+		<h1 class="section-title">Login</h1>
+		<%= form_for(:session, url: login_path) do |f| %>
+      <div>
+  			<%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      <div>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div class="forgot-password">
+      <%= link_to "Forgot password", new_password_reset_path %>
+      </div>
+      <div>
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.check_box :remember_me %>
+      <span>Remember me</span>
+      </div>
+      <% end %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+
+	</section>
+</div>

@@ -1,0 +1,246 @@
+  <%= form_for @event do |f| %>
+    <% if @event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+        <ul>
+        <% @event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :event_name %>
+      <%= f.text_field :event_name %>
+    </div>
+    <div class="field">
+      <%= f.label :event_type %>
+      <%= f.select :event_type, options_for_events, {} %>
+    </div>
+    <div class="field">
+      <%= f.label :event_venue, 'Venue' %>
+      <%= f.text_field :event_venue %>
+    </div> 
+    <div class="field">
+      <%= f.label :event_date, 'Date' %>
+      <%= f.date_field :event_date, id: 'datepicker' %>
+    </div>
+    <div class="field">
+      <%= f.label :event_time, 'Time' %>
+      <%= f.text_field :event_time, id: 'timepicker' %>
+    </div>
+    <div class="field">
+      <%= f.label :event_address, 'Address' %>
+      <%= f.text_field :event_address %>
+    </div>
+    <div class="field">
+      <%= f.label :event_city, 'City' %>
+      <%= f.text_field :event_city %>
+    </div>
+    <div class="field">
+      <%= f.label :event_state, 'State' %>
+      <%= f.select :event_state, options_for_state, {} %>
+    </div>
+    <div class="field">
+      <%= f.label :event_country, 'Country' %>
+      <%= f.select :event_country, options_for_country, {} %>
+    </div>
+    <div class="field">
+      <%= f.label :event_summary %>
+      <%= f.text_area :event_summary, rows: '8' %>
+    </div>
+    <div class="field">
+      <%= f.label :number_of_bands_needed, "Number of bands/artists needed" %>
+      <%= f.select :number_of_bands_needed, options_for_artists_needed, {} %>
+    </div>
+    <div class="field">
+      <%= f.label :event_band_info, "Type of band/artists you are looking for" %>
+      <%= f.text_area :event_band_info, rows: '8' %>
+    </div>
+    <div class="field">
+      <%= f.label :event_info %>
+      <%= f.text_area :event_info, rows: '8' %>
+    </div>
+    <div class="field">
+      <%= f.label :event_description, 'Description' %>
+      <%= f.text_area :event_description, rows: '8' %>
+    </div>
+    <div class="field">
+      <%= f.label :event_video %>
+      <%= f.text_field :event_video %>
+    </div>
+    
+
+    <h2 class="page-label">Contact</h2>
+
+    <div class="field">
+      <%= f.label :event_contact_name, 'Contact name' %>
+      <%= f.text_field :event_contact_name %>
+    </div>
+    <div class="field">
+      <%= f.label :event_contact_email, 'Email' %>
+      <%= f.email_field :event_contact_email %>
+    </div>
+    <div class="field">
+      <%= f.label :event_contact_phone, 'Phone' %>
+      <%= f.phone_field :event_contact_phone %>
+    </div>
+    <div class="field">
+      <%= f.label :company_name %>
+      <%= f.text_field :company_name %>
+    </div>
+    <div class="field">
+      <%= f.label :company_info %>
+      <%= f.text_area :company_info, rows: '8' %>
+    </div>
+    <div class="field">
+      <%= f.label :company_city, 'City' %>
+      <%= f.text_field :company_city %>
+    </div>
+    <div class="field">
+      <%= f.label :company_state, "State" %>
+      <%= f.select :company_state, options_for_company_state, {} %>
+    </div>
+    <div class="field">
+      <%= f.label :company_country, 'Country' %>
+      <%= f.select :company_country, options_for_company_country, {} %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :company_facebook, 'Facebook' %>
+      <%= f.text_field :company_facebook %>
+    </div>
+    <div class="field">
+      <%= f.label :company_twitter, 'Twitter' %>
+      <%= f.text_field :company_twitter %>
+    </div>
+    <div class="field">
+      <%= f.label :company_instagram, 'Instagram' %>
+      <%= f.text_field :company_instagram %>
+    </div>
+
+    <h2 class="page-label">Music Genre</h2>
+
+    <div class="field">
+      <%= f.label :electronic %>
+      <%= f.check_box :electronic %>
+    </div>
+    <div class="field">
+      <%= f.label :rock %>
+      <%= f.check_box :rock %>
+    </div>
+    <div class="field">
+      <%= f.label :pop %>
+      <%= f.check_box :pop %>
+    </div>
+    <div class="field">
+      <%= f.label :indie %>
+      <%= f.check_box :indie %>
+    </div>
+    <div class="field">
+      <%= f.label :jam %>
+      <%= f.check_box :jam %>
+    </div>
+    <div class="field">
+      <%= f.label :metal %>
+      <%= f.check_box :metal %>
+    </div>
+    <div class="field">
+      <%= f.label :country_music, 'Country' %>
+      <%= f.check_box :country_music %>
+    </div>
+    <div class="field">
+      <%= f.label :hip_hop %>
+      <%= f.check_box :hip_hop %>
+    </div>
+    <div class="field">
+      <%= f.label :rap %>
+      <%= f.check_box :rap %>
+    </div>
+    <div class="field">
+      <%= f.label :folk %>
+      <%= f.check_box :folk %>
+    </div>
+    <div class="field">
+      <%= f.label :jazz %>
+      <%= f.check_box :jazz %>
+    </div>
+
+    <div class="field">
+      <%= f.label :blue_grass %>
+      <%= f.check_box :blue_grass %>
+    </div>
+    <div class="field">
+      <%= f.label :blues %>
+      <%= f.check_box :blues %>
+    </div>
+    <div class="field">
+      <%= f.label :alternative %>
+      <%= f.check_box :alternative %>
+    </div>
+    <div class="field">
+      <%= f.label :christian %>
+      <%= f.check_box :christian %>
+    </div>
+    <div class="field">
+      <%= f.label :comedy %>
+      <%= f.check_box :comedy %>
+    </div>
+    <div class="field">
+      <%= f.label :latin %>
+      <%= f.check_box :latin %>
+    </div>
+    <div class="field">
+      <%= f.label :rb %>
+      <%= f.check_box :rb %>
+    </div>
+    <div class="field">
+      <%= f.label :world %>
+      <%= f.check_box :world %>
+    </div>
+    <div class="field">
+      <%= f.label :amaericana %>
+      <%= f.check_box :amaericana %>
+    </div>
+    <div class="field">
+      <%= f.label :classical %>
+      <%= f.check_box :classical %>
+    </div>
+    <div class="field">
+      <%= f.label :spoken_word %>
+      <%= f.check_box :spoken_word %>
+    </div>
+    <div class="field">
+      <%= f.label :reggae %>
+      <%= f.check_box :reggae %>
+    </div>
+      
+
+    <h2 class="page-label">Compensation</h2>
+
+    <div class="field">
+      <%= f.label :food %>
+      <%= f.check_box :food %>
+    </div>
+    <div class="field">
+      <%= f.label :drink %>
+      <%= f.check_box :drink %>
+    </div>
+    <div class="field">
+      <%= f.label :tips %>
+      <%= f.check_box :tips %>
+    </div>
+    <div class="field">
+      <%= f.label :compensation_details %>
+      <%= f.text_area :compensation_details, rows: '8' %>
+    </div>
+
+    </br>
+    
+    <div class="actions">
+      <%= f.submit "Create your event", class: 'btn btn-danger btn-lg' %>
+    </div>
+  <% end %>
+ 

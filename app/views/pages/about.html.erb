@@ -1,0 +1,97 @@
+<section class="about-sec">
+	<div class="container">
+		<h1>About us</h1>
+	</div>
+</section>
+<div class="container add-pad">
+	<section class="sidebar index-page">
+
+		<section class="subscribe-section group">
+		  <div class="update-container">
+		    <p class="email-list">Sign up</p>
+		    <input type="email", placeholder="Enter your email here!">
+		  </div>
+		</section>
+
+		<div class="container group add-pad">
+			<section class="front-page-content">
+		    <% @events.each do |event| %>
+		      <div class="line-info">
+		        <h2 class="event-type"><%= event.event_type.upcase %> | <span class=""><%= event.event_name.upcase %></span></h2>
+		      </div>
+		      <div class="line-info">
+		        <h4 class="line-title">Where: </h4> <span class="event-place"><%= event.event_city %>, <%= event.event_state %></span>
+		      </div>
+		      <div class="line-info">
+		        <h4 class="line-title">On: </h4><span class="event-place"><%= (event.event_date) %></span>
+		      </div>
+		      <div class="line-section">
+		        <h4 class="genre-title">Genre: </h4>
+		        <% if event.electronic %>
+		          <span class="music-badge"><%= 'Electronic '%></span>
+		        <% end %>
+		        <% if event.rock %>
+		          <span class="music-badge"><%= 'Rock '%></span>
+		        <% end %>
+		        <% if event.pop %>
+		          <span class="music-badge"><%= 'Pop '%></span>
+		        <% end %>
+		        <% if event.indie %>
+		          <span class="music-badge"><%= 'Indie '%></span>
+		        <% end %>
+		        <% if event.jam %>
+		          <span class="music-badge"><%= 'Jam '%></span>
+		        <% end %>
+		        <% if event.metal %>
+		          <span class="music-badge"><%= 'Metal '%></span>
+		        <% end %>
+		        <% if event.country_music %>
+		          <span class="music-badge"><%= 'Country '%></span>
+		        <% end %>
+		        <% if event.hip_hop %>
+		          <span class="music-badge"><%= 'Hip Hop '%></span>
+		        <% end %>
+		        <% if event.rap %>
+		          <span class="music-badge"><%= 'Rap '%></span>
+		        <% end %>
+		        <% if event.folk %>
+		          <span class="music-badge"><%= 'Folk '%></span>
+		        <% end %>
+		        <% if event.jazz %>
+		          <span class="music-badge"><%= 'Jazz '%></span>
+		        <% end %>
+		        <% if event.blues %>
+		          <span class="music-badge"><%= 'Blues '%></span>
+		        <% end %>
+		        <% if event.alternative %>
+		          <span class="music-badge"><%= 'Alternative '%></span>
+		        <% end %>
+		        <% if event.christian %>
+		          <span class="music-badge"><%= 'Christian '%></span>
+		        <% end %>
+		        <% if event.latin %>
+		          <span class="music-badge"><%= 'Latin '%></span>
+		        <% end %>
+		        <% if event.rb %>
+		          <span class="music-badge"><%= 'R&B '%></span>
+		        <% end %>
+		        <% if event.world %>
+		          <span class="music-badge"><%= 'World '%></span>
+		        <% end %>
+		        <% if event.classical %>
+		          <span class="music-badge"><%= 'Classical '%></span>
+		        <% end %>
+		        <% if event.comedy %>
+		          <span class="music-badge"><%= 'Comedy '%></span>
+		        <% end %>
+		        <% if event.spoken_word %>
+		          <span class="music-badge"><%= 'Spoken Word '%></span>
+		        <% end %>
+		      </div>
+		      <span class="view-btn">
+		        <%= link_to 'View info', event %>
+		      </span>
+		    <% end %>
+		  </section>
+		</div>
+	</div>

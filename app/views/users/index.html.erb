@@ -1,0 +1,16 @@
+<div class="container add-pad">
+	<h1 class="section-title">Open Mic Promoters</h1>
+	<%= will_paginate %>
+		<ul class="users">
+			<% @users.each do |user| %>
+				<li><%= link_to user.name, user %>
+					<% if current_user.admin? && !current_user?(user) %>
+				    | <%= link_to "delete", user, method: :delete,
+				                                  data: { confirm: "You sure?" } %>
+				  <% end %>
+			  </li>
+			  <hr>
+			<% end %>
+		</ul>
+	<%= will_paginate %>
+</div>

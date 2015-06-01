@@ -1,0 +1,13 @@
+<div class="container">
+	<h1>Open Mic Love</h1>
+
+	<p>Hi <%= @user.name %>,</p>
+
+	<p>
+	Welcome to the Open Mic Love! Click on the link below to activate your account:
+	</p>
+
+	<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+	                                                    email: @user.email) %>
+
+</div>

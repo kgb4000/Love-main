@@ -1,0 +1,142 @@
+<div class="page-wrap">
+<div class="container add-pad group">
+	<section class="main-content">
+		<h1 class="event-type"><%= @event.event_type.upcase %> | <span class="event-name"><%= @event.event_name.upcase %></span></h1>
+	  <h4 class="place-title">Where: </h4>
+	  <span class="event-place"><%= @event.event_venue %>, <%= @event.event_address %> <%= @event.event_city %> <%= @event.event_state %></span></span>
+	  <hr>
+	  <h4 class="event-date">On: </h4><span><%= (@event.event_date) %></span>
+	  <hr>
+	  <div>
+		  <h4 class="event-date">Start time: </h4><span><%= (@event.event_time) %></span>
+		</div>
+	  <hr>
+	  <div class="line-section">
+	    <h4 class="genre-title">Genre: </h4>
+	    <% if @event.electronic %>
+	    	<span class="music-badge"><%= 'Electronic '%></span>
+	    <% end %>
+	    <% if @event.rock %>
+	    	<span class="music-badge"><%= 'Rock '%></span>
+	    <% end %>
+	    <% if @event.pop %>
+	    	<span class="music-badge"><%= 'Pop '%></span>
+	    <% end %>
+	    <% if @event.indie %>
+	    	<span class="music-badge"><%= 'Indie '%></span>
+	    <% end %>
+	    <% if @event.jam %>
+	    	<span class="music-badge"><%= 'Jam '%></span>
+	    <% end %>
+	    <% if @event.metal %>
+	    	<span class="music-badge"><%= 'Metal '%></span>
+	    <% end %>
+	    <% if @event.country_music %>
+	    	<span class="music-badge"><%= 'Country '%></span>
+	    <% end %>
+	    <% if @event.hip_hop %>
+	    	<span class="music-badge"><%= 'Hip Hop '%></span>
+	    <% end %>
+	    <% if @event.rap %>
+	    	<span class="music-badge"><%= 'Rap '%></span>
+	    <% end %>
+	    <% if @event.folk %>
+	    	<span class="music-badge"><%= 'Folk '%></span>
+	    <% end %>
+	    <% if @event.jazz %>
+	    	<span class="music-badge"><%= 'Jazz '%></span>
+	    <% end %>
+	    <% if @event.blues %>
+	    	<span class="music-badge"><%= 'Blues '%></span>
+	    <% end %>
+	    <% if @event.alternative %>
+	    	<span class="music-badge"><%= 'Alternative '%></span>
+	    <% end %>
+	    <% if @event.christian %>
+	    	<span class="music-badge"><%= 'Christian '%></span>
+	    <% end %>
+	    <% if @event.latin %>
+	    	<span class="music-badge"><%= 'Latin '%></span>
+	    <% end %>
+	    <% if @event.rb %>
+	    	<span class="music-badge"><%= 'R&B '%></span>
+	    <% end %>
+	    <% if @event.world %>
+	    	<span class="music-badge"><%= 'World '%></span>
+	    <% end %>
+	    <% if @event.classical %>
+	    	<span class="music-badge"><%= 'Classical '%></span>
+	    <% end %>
+	    <% if @event.comedy %>
+	    	<span class="music-badge"><%= 'Comedy '%></span>
+	    <% end %>
+	    <% if @event.spoken_word %>
+	    	<span class="music-badge"><%= 'Spoken Word '%></span>
+	    <% end %>
+	  </div> 
+	  <% if @event.number_of_bands_needed %>
+		  <div class="show-header">
+		    <p><h1 class="artists-needed"><%= @event.number_of_bands_needed %></h1> artists / bands needed for this event</p>
+		  </div>
+	  <% end %>
+	  
+	  <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank">Share on Facebook</a>
+	  <hr>
+	  <div class="line-section">
+	    <h4 class="line-title">Summary</h4>
+	    <p><%= @event.event_summary %></p>
+	  </div>
+	  <div class="line-section">
+	    <h4 class="line-title">About artist / band needed</h4>
+	    <p><%= @event.event_band_info %></p>
+	  </div>
+	  <div class="line-section">
+	    <h4 class="line-title">Event info</h4>
+	    <p><%= @event.event_info %></p>
+	  </div>
+	  <div class="line-section">
+	    <% if @event.compensation_details.present? %>   
+	      <h4 class="line-title">Compensation</h4>
+	      <p><%= @event.compensation_details %></p>
+	    <% end %>
+	    <% if @event.food.present? || @event.drink %>
+		    <hr>
+			  <div>
+			    <p><%= 'Some Food will be provided' if @event.food %></p>
+			    <p><%= 'Some Drinks will be provided' if @event.drink %></p>
+			  </div>
+			  <hr>
+		  <% end %>
+		</div>
+		<div class="line-section">
+	    <% if @event_video.present? %>   
+	      <h4 class="line-title">Event video</h4>
+	      <p><%= embed(@event.youtube_url) %>  </p>
+	    <% end %>
+		  <div>
+		 <% if current_user?(@event.user) %> 	
+			<div>
+				<%= link_to 'Edit', edit_event_path(@event) %> |
+				<%= link_to 'Back', events_path %>
+			</div>
+		<% end %>
+	</section>
+	<section class="sidebar">
+		<section>
+	    <h3>About <%= @event.company_name %></h3>
+	    <% unless !@event_company.blank? %>
+	      <p><%= @event.company_info %></p>
+	    <% end %>
+	      <p>City: <%= @event.company_city %> <%= @event.company_state %></p>
+	    <p>Contact: <%= @event.event_contact_name %></p> 
+	    <p>Email: <%= @event.event_contact_email %></p>
+	    <p>Phone: <%= @event.event_contact_phone %></p>
+	  </section>
+	  <section class="bubble">
+	    <h3>Artist</h3>
+	    <p>Want to get more shows?</p>
+	    <p>Artist profiles coming soon!</p>
+	  </section>
+	</section>
+</div>
+</div>
